@@ -1,0 +1,59 @@
+1.test veritabanınızda employee isimli sütun bilgileri id(INTEGER), name VARCHAR(50), birthday DATE, email VARCHAR(100) olan bir tablo oluşturalım.
+CREATE TABLE employee(
+	id INTEGER,
+	name VARCHAR(50) NOT NULL,
+	birtday DATE,
+	email VARCHAR(100)
+);
+
+2.Oluşturduğumuz employee tablosuna 'Mockaroo' servisini kullanarak 50 adet veri ekleyelim.
+insert into employee (id, name, email, birthday) values (1, 'Giacobo', 'gbartomieu0@comcast.net', '12/31/1994');
+insert into employee (id, name, email, birthday) values (2, 'Karly', 'ksitch1@ucla.edu', '6/17/1980');
+insert into employee (id, name, email, birthday) values (3, 'Avigdor', 'amoncreiff2@sourceforge.net', '7/31/2000');
+insert into employee (id, name, email, birthday) values (4, 'Charita', 'cshawyer3@twitpic.com', '9/1/1991');
+insert into employee (id, name, email, birthday) values (5, 'Sansone', 'srasper4@360.cn', '11/3/1966');
+insert into employee (id, name, email, birthday) values (6, 'Kelwin', 'kbuddle5@altervista.org', '5/3/1982');
+insert into employee (id, name, email, birthday) values (7, 'Amelia', 'aoutlaw6@ibm.com', '5/30/1997');
+insert into employee (id, name, email, birthday) values (8, 'Ford', 'fgibbonson7@nydailynews.com', '5/31/1979');
+insert into employee (id, name, email, birthday) values (9, 'Ingunna', 'idacre8@yandex.ru', '10/22/1990');
+insert into employee (id, name, email, birthday) values (10, 'Robinia', 'rfeatherbie9@columbia.edu', '7/3/1971');
+--40 Satır daha var.
+
+3.Sütunların her birine göre diğer sütunları güncelleyecek 5 adet UPDATE işlemi yapalım.
+UPDATE employee
+SET name= 'Melih'
+WHERE name= 'Giacobo';
+
+UPDATE employee
+SET name= 'Melih',
+	birthday= '2001-03-13',
+	email= 'melihinam67@gmail.com'
+WHERE name='Melih';
+
+UPDATE employee
+SET email= 'galatasaray@gmail.com'
+WHERE id=10;
+
+UPDATE employee
+SET birthday= '1996-12-13'
+WHERE name LIKE 'O%';
+
+UPDATE employee
+SET birthday= '2001-01-02'
+WHERE name ILIKE 'M%' AND email ILIKE 'M%';
+
+4.Sütunların her birine göre ilgili satırı silecek 5 adet DELETE işlemi yapalım.
+DELETE FROM employee
+WHERE id>40;
+
+DELETE FROM employee
+WHERE name ILIKE 'A%';
+
+DELETE FROM employee
+WHERE email ILIKE 's%';
+
+DELETE FROM employee
+WHERE name = 'Melih';
+
+DELETE FROM employee
+WHERE birthday = '"1996-12-13"';
